@@ -1,8 +1,11 @@
 const route = require("express").Router();
 
-routes.post('/', (req,res) => {
+route.post('/', (req,res) => {
     const username = req.body.username;
     const password = req.body.password;
+    res.status(200).json({
+        username,password
+    })
 })
 
 module.exports = route
