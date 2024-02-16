@@ -21,7 +21,7 @@ route.post("/signup", async (req, res) => {
   }
 });
 
-route.post("/signin", function (req, res) {
+route.post("/signin", authMiddleware,function (req, res) {
   try {
     const token = jwt.sign({ userId: req.userId }, JWTSECRET);
     res.status(200).json({
